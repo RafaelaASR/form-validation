@@ -1,66 +1,60 @@
 <template>
   <VRow>
     <VCol cols="6" class="ma-0 pa-0">
-      <Cadastro :alterar="alterar" @update:alterar="$emit('update:alterar', $event)" />
-    </VCol>
-    <VCol cols="6" class="ma-0 pa-0">
-      <div class="form w-50 pa-16 ma-auto text-center">
-        <p class="text-h4 w-100 mt-7 mb-10">Login</p>
+      <div class="form w-50 pa-10 pt-25 text-center">
+        <p class="text-h4 mt-10 mb-13">Cadastrar</p>
         <form  @submit.prevent="onSubmit">
           <v-text-field
-            class="txt"
+            type="text"
+            label="Nome"
+            v-model="nome"
+            :error="nomeError"
+          >
+          </v-text-field>
+          <v-text-field
             type="email"
             label="Email"
             v-model="email"
             :error="emailError"
-            variant="underlined"
-            >
-            <template #prepend-inner>
-              <i class="ri-mail-fill" style="font-size: 20px; color: #ffffff;"></i>
-            </template>
+          >
           </v-text-field>
           <v-text-field
-            class="txt"
             label="Password"
             type="password"
             v-model="password"
             :error="passwordError"
-            variant="underlined"
           >
-            <template #prepend-inner>
-              <i class="ri-lock-2-fill" style="font-size: 20px; color: #ffffff;"></i>
-            </template>
           </v-text-field>
           <v-btn
             type="submit"
-            class="-fill-gradient mt-10" 
+            class="-fill-gradient mt-5"
           >
             Submit
           </v-btn>
         </form>
       </div>
     </VCol>
+     <VCol cols="6" class="pa-0">
+        <Login :alterar="alterar" @update:alterar="$emit('update:alterar', $event)"/>
+    </VCol>
   </VRow>
 </template>
 
-<script setup>
+<script>
 import { useField, useForm } from 'vee-validate';
-import Cadastro from './Cadastro.vue';
+import Login from './Login.vue';
 
-const props = defineProps({
-  alterar: {
-    type: Boolean
-  }
-});
-
-const emit = defineEmits([
-  'update:alterar'
-]);
-
-/*export default {
+export default {
+  props: {
+    alterar: Boolean
+  },
+  emits: [
+    'update:alterar'
+  ],  
+  components: { Login },
   setup () {
     function onSubmit () {
-        alert('Submitted')
+      alert('Submitted')
     }
 
     const validations = {
@@ -95,7 +89,8 @@ const emit = defineEmits([
     useForm({
       validationSchema: validations
     })
-    
+
+    const { value: nome, errorMessage: nomeError } = useField('nome')
     const { value: email, errorMessage: emailError } = useField('email')
     const { value: password, errorMessage: passwordError } = useField('password')
     
@@ -104,16 +99,17 @@ const emit = defineEmits([
       email,
       emailError: email.errorMessage,
       password,
-      passwordError
+      passwordError,
+      onSubmit
     }
   }
-}*/
+}
 </script>
 <style>
 .form{
+  position: relative;
   background-color: #000000b0;
   color: #ffffff;
-  margin-left: 0;
 }
 
 </style>

@@ -14,8 +14,8 @@
 
 </script>
 <template>
-    <div class="w-50 cadastro ma-auto text-center pa-16" variant="tonal">
-        <p class="text-h4 mb-4 w-100 mt-16 mb-10">Cadastra</p>
+    <div class="w-66 cadastro text-center pa-16" variant="tonal">
+        <p class="text-h4 w-100 mt-16 mb-5">Cadastra</p>
         <p class="">Ainda não é cadastrdo?</p>
         <p class="font-weight-bold">Registre-se agora!</p>
         <VBtn class="mt-16 mb-16" @click="toggleCadastro">CADASTRE-SE</VBtn>

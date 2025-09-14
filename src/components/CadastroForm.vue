@@ -1,8 +1,8 @@
 <template>
   <VRow>
-    <VCol cols="6" class="ma-0 pa-0">
-      <div class="form w-50 pa-10 pt-25 text-center">
-        <p class="text-h4 mt-10 mb-13">Cadastrar</p>
+    <VCol cols="6" class="ma-0 pa-0 d-flex justify-end">
+      <div class="form w-66 pa-10 pt-25 text-center">
+        <p class="text-h4 mt-10 mb-10">Cadastrar</p>
         <form  @submit.prevent="onSubmit">
           <v-text-field
             type="text"
@@ -10,13 +10,19 @@
             v-model="nome"
             :error="nomeError"
           >
+          <template #prepend-inner>
+            <i class="ri-user-fill" style="font-size: 20px; color: #ffffff; margin-right: 7px;"></i>
+          </template>
           </v-text-field>
           <v-text-field
-            type="email"
-            label="Email"
-            v-model="email"
-            :error="emailError"
+          type="email"
+          label="Email"
+          v-model="email"
+          :error="emailError"
           >
+          <template #prepend-inner>
+            <i class="ri-mail-fill" style="font-size: 20px; color: #ffffff; margin-right: 7px;"></i>
+          </template>
           </v-text-field>
           <v-text-field
             label="Password"
@@ -24,6 +30,9 @@
             v-model="password"
             :error="passwordError"
           >
+          <template #prepend-inner>
+            <i class="ri-lock-2-fill" style="font-size: 20px; color: #ffffff; margin-right: 7px;"></i>
+          </template>
           </v-text-field>
           <v-btn
             type="submit"

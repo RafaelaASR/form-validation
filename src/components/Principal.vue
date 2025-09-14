@@ -8,9 +8,9 @@
 </script>
 <template>
   <div v-if="alterar">
-    <CadastroForm class="mx-auto" v-model:alterar="alterar"/>
+    <CadastroForm class="mt-16" v-model:alterar="alterar"/>
   </div>
   <div v-else>
-    <LoginForm v-model:alterar="alterar"/>
+    <LoginForm class="mt-16" v-model:alterar="alterar"/>
   </div>
 </template>

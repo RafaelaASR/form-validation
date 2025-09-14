@@ -14,12 +14,7 @@ const imgFundo = {
 </script>
 
 <template>
-  <div class="login" :style="imgFundo">
+  <div :style="imgFundo">
     <Principal />
   </div>
 </template>
-
-<style scoped>
-
-
-</style>

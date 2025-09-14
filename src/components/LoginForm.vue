@@ -1,14 +1,14 @@
 <template>
   <VRow>
-    <VCol cols="6" class="ma-0 pa-0">
+    <VCol cols="6" class="pa-0 d-flex justify-end">
       <Cadastro :alterar="alterar" @update:alterar="$emit('update:alterar', $event)" />
     </VCol>
-    <VCol cols="6" class="ma-0 pa-0">
-      <div class="form w-50 pa-16 ma-auto text-center">
+    <VCol cols="6" class="pa-0">
+      <div class="form w-66 pa-16 text-center">
         <p class="text-h4 w-100 mt-7 mb-10">Login</p>
         <form  @submit.prevent="onSubmit">
-          <v-text-field
-            class="txt"
+          <v-text-field 
+            class="textFieldColor"
             type="email"
             label="Email"
             v-model="email"
@@ -16,11 +16,11 @@
             variant="underlined"
             >
             <template #prepend-inner>
-              <i class="ri-mail-fill" style="font-size: 20px; color: #ffffff;"></i>
+              <i class="ri-mail-fill" style="font-size: 20px; color: #ffffff; margin-right: 7px;"></i>
             </template>
           </v-text-field>
           <v-text-field
-            class="txt"
+            class="textFieldColor"
             label="Password"
             type="password"
             v-model="password"
@@ -28,7 +28,7 @@
             variant="underlined"
           >
             <template #prepend-inner>
-              <i class="ri-lock-2-fill" style="font-size: 20px; color: #ffffff;"></i>
+              <i class="ri-lock-2-fill" style="font-size: 20px; color: #ffffff; margin-right: 7px;"></i>
             </template>
           </v-text-field>
           <v-btn
@@ -113,7 +113,10 @@ const emit = defineEmits([
 .form{
   background-color: #000000b0;
   color: #ffffff;
-  margin-left: 0;
+}
+.textFieldColor{
+  --v-field-border-color: #fa6600;
+  --v-field-border-opacity: 1;
 }
 
 </style>
